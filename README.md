@@ -1,2 +1,2 @@
 # MyAPP
-Django
+必读
