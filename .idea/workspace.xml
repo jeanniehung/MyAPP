@@ -2,22 +2,41 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b75e3475-4038-4a6b-9737-b5b8b7d2e0f9" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/flaskproject/static/favicon.icon" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flaskproject/templates/404.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flaskproject/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/flaskproject/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/flaskproject/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flaskproject/static/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/flaskproject/static/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flaskproject/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/flaskproject/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1nXlMwNxEaob3MrC9Ili3ceOOHa" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -26,7 +45,15 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\dev\MyAPP\flaskproject\static" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.app">
+    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/MyAPP/flaskproject/templates/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
     <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="MyAPP" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -52,6 +79,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.app" />
+        <item itemvalue="JavaScript Debug.index.html" />
       </list>
     </recent_temporary>
   </component>
@@ -66,24 +94,43 @@
       <option name="presentableId" value="Default" />
       <updated>1548856452516</updated>
       <workItem from="1548988415880" duration="3715000" />
-      <workItem from="1611544278040" duration="758000" />
+      <workItem from="1611544278040" duration="12034000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="384" y="101" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1611544370314">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="384" y="101" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1611544370314" />
+    <state width="1067" height="207" key="GridCell.Tab.0.bottom" timestamp="1611569538365">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1067" height="207" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1611569538365" />
+    <state width="1067" height="207" key="GridCell.Tab.0.center" timestamp="1611569538365">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1067" height="207" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1611569538365" />
+    <state width="1067" height="207" key="GridCell.Tab.0.left" timestamp="1611569538365">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1067" height="207" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1611569538365" />
+    <state width="1067" height="207" key="GridCell.Tab.0.right" timestamp="1611569538365">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1067" height="207" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1611569538365" />
     <state x="437" y="90" key="SettingsEditor" timestamp="1611544385712">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="437" y="90" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1611544385712" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/MyAPP$app.coverage" NAME="app Coverage Results" MODIFIED="1611544388874" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/flaskproject" />
+    <SUITE FILE_PATH="coverage/MyAPP$app.coverage" NAME="app Coverage Results" MODIFIED="1611569607774" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/flaskproject" />
   </component>
 </project>
