@@ -5,7 +5,7 @@ from flask import request, url_for, redirect, flash
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy  # 导入扩展类
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask_login import LoginManager, login_user, logout_user, login_required, current_user, login_manager
+from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 from flask_login import UserMixin
 
 WIN = sys.platform.startswith('win')
