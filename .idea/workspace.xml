@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b75e3475-4038-4a6b-9737-b5b8b7d2e0f9" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/MyAPP.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MyAPP.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/flaskproject/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/flaskproject/app.py" afterDir="false" />
     </list>
@@ -94,6 +96,7 @@
       <workItem from="1611628315513" duration="1398000" />
       <workItem from="1611630127445" duration="3950000" />
       <workItem from="1611643526112" duration="8100000" />
+      <workItem from="1611664801845" duration="233000" />
     </task>
     <servers />
   </component>
@@ -147,6 +150,6 @@
     <state x="697" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1611572244491" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/MyAPP$app.coverage" NAME="app Coverage Results" MODIFIED="1611653372870" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/flaskproject" />
+    <SUITE FILE_PATH="coverage/MyAPP$app.coverage" NAME="app Coverage Results" MODIFIED="1611665127863" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/flaskproject" />
   </component>
 </project>
