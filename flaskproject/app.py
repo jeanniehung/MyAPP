@@ -5,7 +5,7 @@ from flask import request, url_for, redirect, flash
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy  # 导入扩展类
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask_login import LoginManager, login_user, logout_user, login_required, current_user
+from flask_login import LoginManager, login_user, logout_user, login_required, current_user, login_manager
 
 WIN = sys.platform.startswith('win')
 if WIN:  # 如果是 Windows 系统，使用三个斜线
@@ -22,6 +22,15 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # 关闭对模型修改的
 
 # 在扩展类实例化前加载配置
 db = SQLAlchemy(app)
+
+
+login_manager = LoginManager(app)  # 实例化扩展类
+
+
+@login_manager.user_loader
+def load_user(user_id):  # 创建用户加载回调函数，接受用户 ID 作为参数
+    user = User.query.get(int(user_id))  # 用 ID 作为 User 模型的主键查询对应的用户
+    return user  # 返回用户对象
 
 
 class User(db.Model):  # 表名将会是 user（自动生成，小写处理）
@@ -115,15 +124,6 @@ def admin(username, password):
     click.echo('Done.')
 
 
-login_manager = LoginManager(app)  # 实例化扩展类
-
-
-@login_manager.user_loader
-def load_user(user_id):  # 创建用户加载回调函数，接受用户 ID 作为参数
-    user = User.query.get(int(user_id))  # 用 ID 作为 User 模型的主键查询对应的用户
-    return user  # 返回用户对象
-
-
 @app.context_processor
 def inject_user():  # 函数名可以随意修改
     user = User.query.first()
@@ -161,18 +161,23 @@ def index():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        username = request.form.get('username')
-        password = request.form.get('password')
+        username = request.form['username']
+        password = request.form['password']
+
         if not username or not password:
             flash('Invalid input.')
             return redirect(url_for('login'))
+
         user = User.query.first()
+        # 验证用户名和密码是否一致
         if username == user.username and user.validate_password(password):
-            login_user(user)
-            flash('login success.')
-            return redirect(url_for('index'))
-        flash('Invalid Input.')
-        return redirect(url_for('login'))
+            login_user(user)  # 登入用户
+            flash('Login success.')
+            return redirect(url_for('index'))  # 重定向到主页
+
+        flash('Invalid username or password.')  # 如果验证失败，显示错误消息
+        return redirect(url_for('login'))  # 重定向回登录页面
+
     return render_template('login.html')
 
 
