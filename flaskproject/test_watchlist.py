@@ -1,15 +1,22 @@
 import unittest
-
-from app import app, db, Movie, User
+import sys
+# 导入命令函数
+from app import app, db, Movie, User, forge, initdb
 
 
 class WatchlistTestCase(unittest.TestCase):
 
     def setUp(self):
         # 更新配置
+        WIN = sys.platform.startswith('win')
+        if WIN:
+            prefix = 'sqlite:///'
+        else:
+            prefix = 'sqlite:////'
+
         app.config.update(
             TESTING=True,
-            SQLALCHEMY_DATABASE_URI='sqlite:///:memory:'
+            SQLALCHEMY_DATABASE_URI=prefix + ':memory:'
         )
         # 创建数据库和表
         db.create_all()
@@ -50,6 +57,134 @@ class WatchlistTestCase(unittest.TestCase):
         self.assertIn('Test\'s Watchlist', data)
         self.assertIn('Test Movie Title', data)
         self.assertEqual(response.status_code, 200)
+
+    def login(self):
+        self.client.post('/login', data=dict(
+            username='test',
+            password='123456'
+        ), follow_redirects=True)
+
+    def test_create_item(self):
+        self.login()
+
+        response = self.client.post('/', data=dict(
+            title='New Movie',
+            year='2019'
+        ), follow_redirects=True)
+        data = response.get_data(as_text=True)
+        self.assertIn('Item created.', data)
+        self.assertIn('New Movie', data)
+
+        response = self.client.post('/', data=dict(
+            title='',
+            year='2022'
+        ), follow_redirects=True)
+        data = response.get_data(as_text=True)
+        self.assertIn('Invalid input.', data)
+        self.assertNotIn('2022', data)
+
+        response = self.client.post('/', data=dict(
+            title='Invalid New Movie',
+            year=''
+        ), follow_redirects=True)
+        data = response.get_data(as_text=True)
+        self.assertIn('Invalid input.', data)
+        self.assertNotIn('Invalid New Movie', data)
+
+    def test_update_item(self):
+        self.login()
+
+        response = self.client.get('/movie/edit/1')
+        data = response.get_data(as_text=True)
+        self.assertIn('Edit item', data)
+        self.assertIn('Test Movie Title', data)
+        self.assertIn('2019', data)
+
+        response = self.client.post('/movie/edit/1', data=dict(
+            title='New Test Movie Title',
+            year='2019'
+        ), follow_redirects=True)
+        data = response.get_data(as_text=True)
+        self.assertIn('Item updated.', data)
+        self.assertIn('New Test Movie Title', data)
+
+        response = self.client.post('/movie/edit/1', data=dict(
+            title='Test Movie Title',
+            year='2021'
+        ), follow_redirects=True)
+        data = response.get_data(as_text=True)
+        self.assertIn('Item updated.', data)
+        self.assertIn('2021', data)
+
+        response = self.client.post('/movie/edit/1', data=dict(
+            title='',
+            year='2019'
+        ), follow_redirects=True)
+        data = response.get_data(as_text=True)
+        self.assertIn('Invalid input.', data)
+
+        response = self.client.post('/movie/edit/1', data=dict(
+            title='New Test Movie Title',
+            year=''
+        ), follow_redirects=True)
+        data = response.get_data(as_text=True)
+        self.assertIn('Invalid input.', data)
+
+    def test_delete_item(self):
+        self.login()
+
+        response = self.client.post('/movie/delete/1', follow_redirects=True)
+        data = response.get_data(as_text=True)
+        self.assertIn('Item deleted.', data)
+        self.assertNotIn('New Test Movie Title', data)
+
+    def test_setting(self):
+        self.login()
+
+        response = self.client.get('/setting', follow_redirects=True)
+        data = response.get_data(as_text=True)
+        self.assertIn('Test', data)
+
+        response = self.client.post('/setting', data=dict(
+            name='Admin'
+        ), follow_redirects=True)
+        data = response.get_data(as_text=True)
+        self.assertIn('Setting Update.', data)
+        self.assertIn('Admin', data)
+
+    def logout(self):
+        self.client.get('/logout', follow_redirects=True)
+
+    def test_forge_command(self):
+        result = self.runner.invoke(forge)
+        self.assertIn('Done.', result.output)
+        self.assertNotEqual(Movie.query.count(), 0)
+
+    # 测试初始化数据库
+    def test_initdb_command(self):
+        result = self.runner.invoke(initdb)
+        self.assertIn('Initialized database.', result.output)
+
+    # 测试生成管理员账户
+    def test_admin_command(self):
+        db.drop_all()
+        db.create_all()
+        result = self.runner.invoke(args=['admin', '--username', 'grey', '--password', '123'])
+        self.assertIn('Creating user...', result.output)
+        self.assertIn('Done.', result.output)
+        self.assertEqual(User.query.count(), 1)
+        self.assertEqual(User.query.first().username, 'grey')
+        self.assertTrue(User.query.first().validate_password('123'))
+
+    # 测试更新管理员账户
+    def test_admin_command_update(self):
+        # 使用 args 参数给出完整的命令参数列表
+        result = self.runner.invoke(args=['admin', '--username', 'peter', '--password', '456'])
+        self.assertIn('Updating user...', result.output)
+        self.assertIn('Done.', result.output)
+        self.assertEqual(User.query.count(), 1)
+        self.assertEqual(User.query.first().username, 'peter')
+        self.assertTrue(User.query.first().validate_password('456'))
 
 
 if __name__ == '__main__':

@@ -15,6 +15,7 @@ else:  # 否则使用四个斜线
     prefix = 'sqlite:////'
 
 app = Flask(__name__)
+app.secret_key ="super secret key"
 
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////' + os.path.join(app.root_path, 'data.db')
 
@@ -68,7 +69,7 @@ def initdb(drop):
 
 
 @app.cli.command()
-def forget():
+def forge():
     """
     Generate fake data
     :return:
