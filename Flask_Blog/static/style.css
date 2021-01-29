@@ -2,9 +2,12 @@ body {
     background: #fafafa;
     color: #333333;
     margin-top: 5rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 14pt;
+    font-weight: bold;
 }
 
-/* ul {
+ul {
     list-style-type: none;
     margin: 100px 50px;/*margin:100px auto无效,不能使ul左右居中*/
     text-align: center;
@@ -20,9 +23,8 @@ li {
 a:link, a:visited, a:hover, a:active {
     color: #fff;
     text-decoration:none;
-} */
+}
 
-/* 
 .left {
   float: left;
   width: 100%;
@@ -33,4 +35,4 @@ a:link, a:visited, a:hover, a:active {
   float: right;
   width: 300px;
   height: 30px;
-} */
+}
