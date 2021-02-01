@@ -1,6 +1,6 @@
 from flask import Flask
 from flask import render_template
-from flask_sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy  # 导入扩展类
 import pymysql
 
 pymysql.install_as_MySQLdb()
@@ -8,11 +8,12 @@ pymysql.install_as_MySQLdb()
 app = Flask(__name__)
 
 class Config(object):
-    """设置配置参数"""
+    """配置参数"""
+    # 设置连接数据库的URL
     user = 'root'
     password = '123456'
-    database = 'mysql_db'
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://%s:%s@127.0.0.1:3306/%s' % (user, password, database)
+    database = 'flask_ex'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://%s:%s@127.0.0.1:3306/%s' % (user,password,database)
 
     # 设置sqlalchemy自动更跟踪数据库
     SQLALCHEMY_TRACK_MODIFICATIONS = True
@@ -29,6 +30,7 @@ app.config.from_object(Config)
 # 创建数据库sqlalchemy工具对象
 db = SQLAlchemy(app)
 
+
 class Role(db.Model):
     # 定义表名
     __tablename__ = 'roles'
@@ -36,7 +38,6 @@ class Role(db.Model):
     id = db.Column(db.Integer, primary_key=True,autoincrement=True)
     name = db.Column(db.String(64), unique=True)
     users = db.relationship('User',backref='role') # 反推与role关联的多个User模型对象
-
 
 class User(db.Model):
     # 定义表名
@@ -47,7 +48,6 @@ class User(db.Model):
     email = db.Column(db.String(64),unique=True)
     pswd = db.Column(db.String(64))
     role_id = db.Column(db.Integer, db.ForeignKey('roles.id')) # 设置外键
-
 
 @app.route('/')
 @app.route('/index')
