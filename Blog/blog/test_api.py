@@ -30,6 +30,6 @@ class APITestCase(unittest.TestCase):
         response = self.client.post("/login", data={'username': '', 'password': '123456'})
         res = response.data
         result = json.loads(res)
-        self.assertEqual('1001', str(result.get('code')))
+        self.assertEqual(1001, result.get('code'))
 
 
