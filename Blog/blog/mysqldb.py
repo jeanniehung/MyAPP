@@ -1,4 +1,3 @@
-# from blog.config.setting import MYSQL_DB, MYSQL_HOST, MYSQL_PASSWD, MYSQL_PORT, MYSQL_USER
 import pymysql
 
 
@@ -46,6 +45,4 @@ class MysqlDb(object):
             # 回滚所有更改
             self.conn.rollback()
 
-
-# db = MysqlDb(MYSQL_HOST, MYSQL_PORT, MYSQL_USER, MYSQL_PASSWD, MYSQL_DB)
 
