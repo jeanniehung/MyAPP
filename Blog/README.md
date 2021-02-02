@@ -18,4 +18,16 @@ set FLASK_ENV=developmetn
 powershell:
 $env:FLASK_ENV = "development"
 ```
+
+
+### 使用flask.request 接收数据
+request.form：用于接收表单参数
+request.args：用于接收GET参数
+request.json：用于接收JSON参数
+request.values：获取所有参数（表单参数+GET参数）
+request.file：用于接收文件
+
 # https://cloud.tencent.com/developer/article/1560357
+
+接口自动化
+https://my.oschina.net/u/4404102/blog/4436766
