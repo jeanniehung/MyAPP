@@ -2,9 +2,8 @@ from flask import Flask, jsonify, request
 import re
 from blog.mysqldb import MysqlDb
 from blog.config.setting import MYSQL_DB, MYSQL_PASSWD, MYSQL_HOST, MYSQL_PORT, MYSQL_USER
-from blog.setting import app
 
-# app = Flask(__name__)
+app = Flask(__name__)
 app.config['SECRET_KEY'] = 'hard to guess'
 
 db = MysqlDb(MYSQL_HOST, MYSQL_PORT, MYSQL_USER, MYSQL_PASSWD, MYSQL_DB)

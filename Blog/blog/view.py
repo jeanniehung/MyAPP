@@ -4,10 +4,9 @@ import re
 import pymysql
 from blog.config.setting import MYSQL_HOST, MYSQL_PORT, MYSQL_USER, MYSQL_PASSWD, MYSQL_DB, SERVER_PORT
 from blog.mysqldb import MysqlDb
-from blog.setting import app
 
 '''配置数据库'''
-# app = Flask(__name__)
+app = Flask(__name__)
 app.config['SECRET_KEY'] ='hard to guess'
 
 
