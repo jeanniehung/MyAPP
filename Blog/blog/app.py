@@ -3,6 +3,7 @@ import sys
 from blog.config.setting import SERVER_PORT
 from blog.view import app
 from blog.api import app
+from blog.manage import app
 
 
 # 项目根路径
