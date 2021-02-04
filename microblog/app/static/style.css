@@ -1,0 +1,70 @@
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 14px;
+    margin: auto;
+    max-width: 580px;
+}
+
+/* 页脚 */
+footer {
+    color: #888;
+    margin-top: 15px;
+    text-align: center;
+    padding: 10px;
+}
+
+.avatar {
+    width: 40px;
+}
+
+/* nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+nav ul li {
+    display: inline;
+}
+nav ul li a:link, nav ul li a:visited {
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #98bf21;
+    text-align: center;
+    padding: 6px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+nav ul li a:hover, nav ul li a:active {
+    background-color: #7a991a;
+} */
+
+nav ul {
+    width: 580px;
+    padding: 0;
+    margin: 0;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+nav ul li {
+    list-style-type: none;
+    float: left;
+}
+nav ul span {
+    float: right;
+}
+nav ul li a {
+    font-size: 14px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #98bf21;
+    display: block;
+    padding: 6px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+nav ul li a:hover {
+    background: #7a991a;
+}
